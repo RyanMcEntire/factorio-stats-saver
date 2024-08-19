@@ -11,7 +11,7 @@ script.on_event(defines.events.on_tick, function(event)
   }
 
   if (event.tick % interval) == 0 and global.retry_state.retries == 0 then
-    game.print("It has been 1 min my dudes")
+    game.print("It has been 1")
     global.retry_state.initial_tick = game.tick
     global.retry_state.next_retry_tick = game.tick
   end
