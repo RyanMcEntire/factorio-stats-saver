@@ -17,6 +17,8 @@ logging.basicConfig(
     filemode='a'
 )
 
+API_KEY = 'API_KEY_1'
+
 class StatsFileHandler(FileSystemEventHandler):
     def __init__(self, file_path, upload_url):
         self.file_path = file_path
@@ -30,7 +32,8 @@ class StatsFileHandler(FileSystemEventHandler):
         try:
             with open(self.file_path, 'r') as file:
                 data = json.load(file)
-                response = requests.post(self.upload_url, json=data)
+                headers = {'X-API-Key': API_KEY}
+                response = requests.post(self.upload_url, json=data, headers=headers)
                 if response.status_code == 200:
                     logging.info(f"Uploaded data from {os.path.basename(self.file_path)}")
                 else:
