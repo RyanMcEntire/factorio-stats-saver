@@ -7,7 +7,6 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import logging
 
-# Set up logging
 log_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'factorio_stats_watcher.log')
 logging.basicConfig(
     level=logging.INFO,

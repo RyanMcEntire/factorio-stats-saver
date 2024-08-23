@@ -21,12 +21,10 @@ echo .
 
 setlocal enabledelayedexpansion
 
-REM Check if Python is installed
 python --version >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
     echo Python is not installed. Installing Python...
     
-    REM Download the Python installer
     curl -L -o python_installer.exe https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe
     
     IF NOT EXIST python_installer.exe (
@@ -35,17 +33,13 @@ IF %ERRORLEVEL% NEQ 0 (
         exit /b 1
     )
     
-    REM Install Python silently with PATH added
     python_installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0
     
-    REM Clean up the installer
     del python_installer.exe
     
-    REM Update PATH for the current session
     set "PATH=%PATH%;%LOCALAPPDATA%\Programs\Python\Python310;%LOCALAPPDATA%\Programs\Python\Python310\Scripts"
 )
 
-REM Check Python installation again to ensure it was installed correctly
 python --version >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
     echo Python installation failed. Please restart your computer and try again.
@@ -54,7 +48,6 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 echo Python is installed successfully.
 
-REM Install required Python packages
 echo Installing required Python packages...
 pip install requests watchdog psutil --quiet --no-input
 
