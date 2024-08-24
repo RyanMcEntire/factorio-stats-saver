@@ -44,6 +44,9 @@ def is_factorio_running():
     return 'factorio.exe' in (p.name().lower() for p in psutil.process_iter(['name']))
 
 def main():
+    time.sleep(10)
+    
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     production_file = os.path.join(script_dir, '..', 'script-output', 'production_stats.json') 
     consumption_file = os.path.join(script_dir, '..', 'script-output', 'consumption_stats.json')
     server_url = 'https://localhost:3000/upload'
