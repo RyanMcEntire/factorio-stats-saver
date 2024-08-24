@@ -7,6 +7,9 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import logging
 import urllib3
+from dotenv import load_dotenv
+
+load_dotenv()
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -21,7 +24,7 @@ logging.basicConfig(
     filemode="a",
 )
 
-API_KEY = "loloops"
+API_KEY = os.getenv("API_KEY_2")
 
 
 class StatsFileHandler(FileSystemEventHandler):
