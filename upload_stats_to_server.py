@@ -21,7 +21,7 @@ logging.basicConfig(
     filemode="a",
 )
 
-API_KEY = "TREEFISHPUNCH-9867-493f-b234-567890abcdef"
+API_KEY = "loloops"
 
 
 class StatsFileHandler(FileSystemEventHandler):
