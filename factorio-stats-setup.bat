@@ -49,7 +49,7 @@ IF %ERRORLEVEL% NEQ 0 (
 echo Python is installed successfully.
 
 echo Installing required Python packages...
-pip install requests watchdog psutil --quiet --no-input
+pip install requests watchdog psutil python-dotenv --quiet --no-input
 
 color 06
 

@@ -52,7 +52,7 @@ class StatsFileHandler(FileSystemEventHandler):
                     self.upload_url, json=data, headers=headers, verify=False
                 )
                 if response.status_code == 200:
-                    print"Uploaded data from {os.path.basename(self.file_path)}"()
+                    print("Uploaded data from {os.path.basename(self.file_path)}")
                     logging.info(
                         f"Uploaded data from {os.path.basename(self.file_path)}"
                     )
@@ -75,7 +75,7 @@ def is_factorio_running():
 
 
 def main():
-    time.sleep(10)
+    time.sleep(5)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     stats_file = os.path.join(script_dir, "..", "script-output", "stats.json")
