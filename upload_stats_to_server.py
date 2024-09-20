@@ -26,6 +26,7 @@ logging.basicConfig(
 )
 
 API_KEY = os.getenv("API_KEY_2")
+UPLOAD_SERVER_URL = os.getenv("UPLOAD_SERVER_URL")
 
 
 class StatsFileHandler(FileSystemEventHandler):
@@ -47,10 +48,7 @@ class StatsFileHandler(FileSystemEventHandler):
             with open(self.file_path, "r") as file:
                 data = json.load(file)
                 headers = {"X-API-Key": API_KEY}
-                # REMOVE VERIFY=FALSE IN PRODUCTION
-                response = requests.post(
-                    self.upload_url, json=data, headers=headers, verify=False
-                )
+                response = requests.post(self.upload_url, json=data, headers=headers)
                 if response.status_code == 200:
                     print("Uploaded data from {os.path.basename(self.file_path)}")
                     logging.info(
@@ -79,7 +77,7 @@ def main():
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     stats_file = os.path.join(script_dir, "..", "script-output", "stats.json")
-    server_url = "https://localhost:3000/upload"
+    server_url = UPLOAD_SERVER_URL
 
     event_handler = StatsFileHandler(stats_file, server_url)
 
