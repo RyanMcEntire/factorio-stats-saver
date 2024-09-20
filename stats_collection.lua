@@ -23,7 +23,11 @@ script.on_event(defines.events.on_tick, function(event)
         local production_stats = force.item_production_statistics
         local prod_stats_table = {}
         local con_stats_table = {}
+        local surface_table = {}
 
+        for name, surface in pairs(game.surfaces) do
+            surface_table[name] = surface
+        end
         for name, count in pairs(production_stats.output_counts) do
             prod_stats_table[name] = count
         end
@@ -31,6 +35,7 @@ script.on_event(defines.events.on_tick, function(event)
             con_stats_table[name] = count
         end
         local all_stats = {
+          ["surface"] = surface_table,
           ["game-tick"] = global.retry_state.initial_tick,
           ["game-hours"] = global.retry_state.initial_tick / 60 / 60 / 60,
           ["production stats"] = prod_stats_table,
@@ -47,6 +52,7 @@ script.on_event(defines.events.on_tick, function(event)
 
         if global.retry_state.retries > retry_limit then
           local all_stats = {
+            ["surface"] = surface_table,
             ["game-tick"] = global.retry_state.initial_tick,
             ["game-hours"] = global.retry_state.initial_tick / 60 / 60 / 60,
             ["production stats"] = {},
