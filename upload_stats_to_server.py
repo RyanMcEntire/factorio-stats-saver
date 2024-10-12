@@ -58,9 +58,11 @@ class StatsFileHandler(FileSystemEventHandler):
                     print(
                         "Failed to upload {os.path.basename(self.file_path)}. Status: {response.status_code}"
                     )
+                    print(f"Response content: {response.text}")
                     logging.error(
                         f"Failed to upload {os.path.basename(self.file_path)}. Status: {response.status_code}"
                     )
+                    logging.error(f"Response content: {response.text}")
         except Exception as e:
             print("Error uploading {os.path.basename(self.file_path)}: {str(e)}")
             logging.error(
