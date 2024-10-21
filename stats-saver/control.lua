@@ -3,7 +3,7 @@ script.on_event(defines.events.on_tick, function(event)
 		local force = game.forces["player"]
 		local current_tick = event.tick
 		local surfaces = {}
-		local active_mods = game.active_mods
+		local active_mods = script.active_mods
 		local researched_techs = {}
 
 		for tech_name, tech in pairs(force.technologies) do
