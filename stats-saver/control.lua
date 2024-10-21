@@ -1,5 +1,5 @@
 script.on_event(defines.events.on_tick, function(event)
-	if event.tick % (30 * 60) == 0 then --
+	if event.tick % (60 * 60) == 0 then --
 		local force = game.forces["player"]
 		local current_tick = event.tick
 		local surfaces = {}
