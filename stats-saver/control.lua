@@ -26,7 +26,7 @@ script.on_event(defines.events.on_tick, function(event)
 			mods = active_mods,
 		}
 
-		game.write_file("stats.json", game.table_to_json(combined_data), false)
+		helpers.write_file("stats.json", helpers.table_to_json(combined_data), false)
 	end
 end)
 
