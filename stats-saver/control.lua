@@ -14,8 +14,8 @@ script.on_event(defines.events.on_tick, function(event)
 
 		for name, _ in pairs(game.surfaces) do
 			surfaces[name] = {
-				production = get_item_production_statistics(name).input_counts,
-				consumption = get_item_production_statistics(name).output_counts,
+				production = force.get_item_production_statistics(name).input_counts,
+				consumption = force.get_item_production_statistics(name).output_counts,
 			}
 		end
 
