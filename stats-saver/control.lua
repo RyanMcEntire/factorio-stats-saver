@@ -14,10 +14,10 @@ script.on_event(defines.events.on_tick, function(event)
 			end
 		end
 
-		for name, _ in pairs(game.surfaces) do
+		for name, id in pairs(game.surfaces) do
 			surfaces[name] = {
-				production = new_production_stats,
-				consumption = new_consumption_stats,
+				production = get_item_production_statistics(name).input_counts,
+				consumption = get_item_production_statistics(name).output_counts,
 			}
 		end
 

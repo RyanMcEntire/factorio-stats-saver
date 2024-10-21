@@ -1,9 +1,9 @@
 {
   "name": "stats-saver",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "title": "Stats Saver",
   "author": "Clowdy",
-  "factorio_version": "1.1",
-  "dependencies": ["base >= 1.1"],
+  "factorio_version": "2.0",
+  "dependencies": ["base >= 2.0"],
   "description": "This mod causes the client periodically write to and update a local file with the most up to date production and consumption totals."
 }
